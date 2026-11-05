@@ -1,6 +1,6 @@
 # Wallpapers Alive
 
-Your own videos as the macOS desktop wallpaper, and optionally on the Lock Screen.
+Your own videos as the macOS desktop wallpaper.
 
 Wallpapers Alive is a tiny menu-bar app that plays videos you choose as a live wallpaper on every display. Import a
 clip once and it is optimized for cheap, hardware-decoded looping; playback pauses whenever nobody can see it. It is
@@ -12,14 +12,46 @@ native, has no third-party dependencies and no Dock icon.
 
 | File | System | What it is |
 | --- | --- | --- |
-| `Wallpapers-Alive-X.Y.Z.dmg` | macOS 26 or later, Apple silicon | The installer. **Download this.** |
+| `Wallpapers-Alive-X.Y.Z.dmg` | macOS 14 or later, Apple silicon | The installer. **Download this.** |
 | `latest-mac.json`, `Wallpapers-Alive-X.Y.Z.zip` | macOS | Update files that installed copies read |
 
 You never need to download the update files yourself.
 
 ## Requirements
 
-- macOS 26 or later on an Apple silicon Mac.
+- macOS 14 Sonoma or later on a Mac with Apple silicon. There is no Intel version.
+
+## Compatibility
+
+### Which macOS gets which feature
+
+| Feature | 14 Sonoma | 15 Sequoia | 26 Tahoe | 27.0–27.1 | 27.2 and later |
+| --- | --- | --- | --- | --- | --- |
+| Video wallpaper on all displays and Spaces, Library, Scaling | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Quality: Resolution and Frame Rate, optimize on import | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Pausing (covered, locked, asleep, Low Power Mode, battery) | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Match Menu Bar to Video | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Glass Menu Bar | frosted strip | frosted strip | Liquid Glass | Liquid Glass | Liquid Glass |
+| Also use on Lock Screen (video) | — | — | ✓ | ✓ | — |
+| Automatic updates | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+- Lock Screen: Apple stopped loading custom Lock Screen videos in macOS 27.2. On macOS 14 and 15, and on 27.2 and later, the option is in the menu but greyed out and can't be turned on. The video still plays as your desktop wallpaper everywhere.
+- Glass Menu Bar on 14 and 15 is a frosted strip, because Liquid Glass needs macOS 26. It is off by default there; turn it on in the menu.
+- Menu-bar matching needs **Match Menu Bar to Video** turned on.
+
+### Which app version runs where
+
+| Version | Runs on | Updates |
+| --- | --- | --- |
+| 1.4.0 | macOS 14 or later | Updates itself |
+| 1.3.0 | macOS 26 or later | Updates itself (the first version that does) |
+| 1.2.0, 1.1.0, 1.0.0 | macOS 26 or later | Install by hand; no automatic updates |
+
+Every version needs a Mac with Apple silicon. There is no Intel version.
+
+### Updates
+
+Wallpapers Alive 1.3.0 and later update themselves. If you have 1.2.0 or older, download the newest `.dmg` once and install it; from then on it updates itself.
 
 ## Install
 
@@ -37,7 +69,7 @@ click **Download**, and then **Restart to Update** installs it.
 - The download is checked against the SHA-512 in `latest-mac.json`.
 - The update is installed only if it is signed with the same Developer ID as the app you are running.
 
-Versions before 1.3.0 don't check for updates: install 1.3.0 or later once from the `.dmg`. Updates replace only the
+Versions before 1.3.0 don't check for updates: install the newest `.dmg` once. Updates replace only the
 app: your library and settings stay as they are.
 
 ## Uninstall
@@ -48,8 +80,8 @@ What stays: its own data in `~/Library/Application Support/Wallpapers Alive` (yo
 macOS wallpaper settings), which you can delete yourself.
 
 Before you uninstall, choose **Restore macOS Wallpaper…** in the menu if you used the Lock Screen option or
-**Match Menu Bar to Video**: they work through macOS's own wallpaper settings, and this puts yours back. On macOS 27.2
-the Lock Screen option is unavailable, because macOS no longer loads custom Lock Screen videos.
+**Match Menu Bar to Video**: they work through macOS's own wallpaper settings, and this puts yours back. The Lock Screen
+option exists on macOS 26 to 27.1 only (see Compatibility above).
 
 ## Privacy
 
